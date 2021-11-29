@@ -1,0 +1,15 @@
+.ColorBox {
+  width: 20%;
+  height: 25%;
+  cursor: pointer;
+  position: relative;
+}
+
+/* .ColorBox-more {
+  background-color: #000;
+  color: #fff;
+  padding: 0.25rem;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+} */
