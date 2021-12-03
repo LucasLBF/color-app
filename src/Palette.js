@@ -6,7 +6,7 @@ class Palette extends Component {
   render() {
     return (
       <div className="Palette">
-        <div class="Palette-colors">
+        <div className="Palette-colors">
           {this.props.palette.colors.map(colorObj => (
             <ColorBox color={colorObj.color} name={colorObj.name} />
           ))}
