@@ -8,7 +8,11 @@ class Palette extends Component {
       <div className="Palette">
         <div className="Palette-colors">
           {this.props.palette.colors.map(colorObj => (
-            <ColorBox color={colorObj.color} name={colorObj.name} />
+            <ColorBox
+              key={colorObj.name}
+              color={colorObj.color}
+              name={colorObj.name}
+            />
           ))}
         </div>
       </div>
