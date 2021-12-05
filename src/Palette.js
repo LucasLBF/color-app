@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import Slider, { Range } from "rc-slider";
-import "rc-slider/assets/index.css";
+import Slider from "rc-slider";
 import ColorBox from "./ColorBox";
+import "rc-slider/assets/index.css";
 import "./Palette.css";
 
 class Palette extends Component {
