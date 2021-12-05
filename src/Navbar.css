@@ -1,9 +1,9 @@
 .Navbar {
   height: 7%;
-  padding: 0 0.5rem;
   display: flex;
   align-items: center;
   gap: 1rem;
+  padding-right: 3rem;
 }
 
 .Navbar-brand {
@@ -25,6 +25,10 @@
   width: 15%;
   display: flex;
   justify-content: space-between;
+}
+
+.Navbar-select-container {
+  margin-left: auto;
 }
 
 .rc-slider-track {
