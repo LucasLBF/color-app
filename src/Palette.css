@@ -7,3 +7,21 @@
   flex-wrap: wrap;
   height: 90%;
 }
+
+.Palette-footer {
+  height: 5vh;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-weight: bold;
+}
+
+.Palette-name {
+  font-size: 1rem;
+}
+
+.Palette-emoji {
+  font-size: 1.125rem;
+  margin-left: 1rem;
+}

@@ -1,0 +1,51 @@
+.Navbar {
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-right: 3rem;
+}
+
+.Navbar-brand {
+  background-color: #eceff1;
+  height: 100%;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.Navbar-brand-name:link,
+.Navbar-brand-name:visited {
+  text-decoration: none;
+  font-size: 1.6rem;
+  color: #444;
+}
+
+.Navbar-palette-slider {
+  width: 15%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Navbar-select-container {
+  margin-left: auto;
+}
+
+.rc-slider-track {
+  background-color: transparent;
+}
+
+.rc-slider-rail {
+  height: 8px;
+}
+
+.rc-slider-handle,
+.rc-slider-handle:hover,
+.rc-slider-handle:active,
+.rc-slider-handle:focus {
+  background-color: #2f9e44;
+  outline: none;
+  border: 2px solid #2f9e44;
+  box-shadow: none;
+  margin-top: -3px;
+}
