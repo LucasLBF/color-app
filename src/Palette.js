@@ -23,7 +23,7 @@ class Palette extends Component {
   }
 
   render() {
-    const { colors } = this.props.palette;
+    const { colors, paletteName, emoji } = this.props.palette;
     const { level, format } = this.state;
     return (
       <div className="Palette">
@@ -41,6 +41,10 @@ class Palette extends Component {
             />
           ))}
         </div>
+        <footer className="Palette-footer">
+          <p className="Palette-name">{paletteName}</p>
+          <p className="Palette-emoji">{emoji}</p>
+        </footer>
       </div>
     );
   }
