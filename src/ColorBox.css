@@ -53,6 +53,17 @@
   letter-spacing: 1px;
   font-size: 0.75rem;
   font-weight: 700;
+  color: #000;
+}
+
+.light-text {
+  color: #fff;
+}
+
+.dark-text,
+.ColorBox-more.dark-text,
+.ColorBox-copy-btn.dark-text {
+  color: #444;
 }
 
 .ColorBox-more {
