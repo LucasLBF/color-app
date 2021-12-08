@@ -31,6 +31,7 @@ class Palette extends Component {
           level={level}
           changeLevel={this.changeLevel}
           changeCode={this.changeColorFormat}
+          showSlider
         />
         <div className="Palette-colors">
           {colors[level].map(colorObj => (
