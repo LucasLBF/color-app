@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ColorBox from "./ColorBox";
 import Navbar from "./Navbar";
+import PaletteFooter from "./PaletteFooter";
 
 class SingleColorPalette extends Component {
   constructor(props) {
@@ -41,10 +42,7 @@ class SingleColorPalette extends Component {
       <div className="Palette">
         <Navbar changeCode={this.changeColorFormat} />
         <div className="Palette-colors">{colorBoxes}</div>
-        <footer className="Palette-footer">
-          <p className="Palette-name">{paletteName}</p>
-          <p className="Palette-emoji">{emoji}</p>
-        </footer>
+        <PaletteFooter paletteName={paletteName} emoji={emoji} />
       </div>
     );
   }
