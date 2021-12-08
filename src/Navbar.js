@@ -29,7 +29,7 @@ class Navbar extends Component {
   }
 
   render() {
-    const { level, changeLevel } = this.props;
+    const { level, changeLevel, showSlider } = this.props;
     const { format, open } = this.state;
     return (
       <header className="Navbar">
@@ -38,22 +38,26 @@ class Navbar extends Component {
             ReactColorPicker
           </Link>
         </div>
-        <span>Level: {level}</span>
-        <div className="Navbar-palette-slider">
-          <Slider
-            defaultValue={level}
-            min={100}
-            max={900}
-            step={100}
-            onAfterChange={changeLevel}
-          />
-        </div>
+        {showSlider && (
+          <>
+            <span>Level: {level}</span>
+            <div className="Navbar-palette-slider">
+              <Slider
+                defaultValue={level}
+                min={100}
+                max={900}
+                step={100}
+                onAfterChange={changeLevel}
+              />
+            </div>
+          </>
+        )}
         <div className="Navbar-select-container">
           <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
             <Select onChange={this.handleChange} value={format}>
               <MenuItem value="hex">HEX - #ffffff</MenuItem>
               <MenuItem value="rgb">RGB - rgb(255, 255, 255)</MenuItem>
-              <MenuItem value="rgba">RGBA - rgba(255, 255, 255, 1)</MenuItem>
+              <MenuItem value="rgba">RGBA - rgba(255, 255, 255, 1.0)</MenuItem>
             </Select>
           </FormControl>
         </div>
