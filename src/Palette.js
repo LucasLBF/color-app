@@ -42,7 +42,7 @@ class Palette extends Component {
               key={colorObj.id}
               color={colorObj[format]}
               name={colorObj.name}
-              showLink
+              showingFullPalette
             />
           ))}
         </div>
