@@ -1,36 +1,7 @@
 import React, { Component } from "react";
 import MiniPalette from "./MiniPalette";
 import { withStyles } from "@mui/styles";
-
-const styles = {
-  root: {
-    backgroundColor: "blue",
-    minHeight: "100vh",
-    display: "flex",
-    alignItems: "flex-start",
-    justifyContent: "center",
-  },
-  container: {
-    width: "50%",
-    display: "flex",
-    alignItems: "flex-start",
-    flexDirection: "column",
-    flexWrap: "wrap",
-  },
-  nav: {
-    display: "flex",
-    width: "100%",
-    justifyContent: "space-between",
-    color: "#fff",
-  },
-  palettes: {
-    boxSizing: "border-box",
-    width: "100%",
-    display: "grid",
-    gridTemplateColumns: "repeat(3, 30%)",
-    gridGap: "5%",
-  },
-};
+import PaletteListStyles from "./ComponentStyles/PaletteListStyles";
 
 class PaletteList extends Component {
   goToPalette(id) {
@@ -60,4 +31,4 @@ class PaletteList extends Component {
   }
 }
 
-export default withStyles(styles)(PaletteList);
+export default withStyles(PaletteListStyles)(PaletteList);

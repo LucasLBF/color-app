@@ -2,19 +2,9 @@ import React, { Component } from "react";
 import { withStyles } from "@mui/styles";
 import ColorBox from "./ColorBox";
 import Navbar from "./Navbar";
-import "./Palette.css";
 import PaletteFooter from "./PaletteFooter";
+import PaletteStyles from "./ComponentStyles/PaletteStyles";
 
-const styles = {
-  palette: {
-    height: "100vh",
-  },
-  paletteColors: {
-    display: "flex",
-    flexWrap: "wrap",
-    height: "90%",
-  },
-};
 class Palette extends Component {
   constructor(props) {
     super(props);
@@ -64,4 +54,4 @@ class Palette extends Component {
   }
 }
 
-export default withStyles(styles)(Palette);
+export default withStyles(PaletteStyles)(Palette);
