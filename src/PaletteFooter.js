@@ -1,23 +1,6 @@
 import React from "react";
 import { withStyles } from "@mui/styles";
-
-const styles = {
-  paletteFooter: {
-    height: "5vh",
-    padding: "0 2rem",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "flex-end",
-    fontWeight: "bold",
-  },
-  paletteName: {
-    fontSize: "1rem",
-  },
-  paletteEmoji: {
-    fontSize: "1.125rem",
-    marginLeft: "1rem",
-  },
-};
+import PaletteFooterStyles from "./ComponentStyles/PaletteFooterStyles";
 
 const PaletteFooter = props => {
   const { paletteName, emoji, classes } = props;
@@ -29,4 +12,4 @@ const PaletteFooter = props => {
   );
 };
 
-export default withStyles(styles)(PaletteFooter);
+export default withStyles(PaletteFooterStyles)(PaletteFooter);
