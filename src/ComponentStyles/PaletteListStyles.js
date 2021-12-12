@@ -18,6 +18,17 @@ const PaletteListStyles = {
     width: "100%",
     justifyContent: "space-between",
     color: "#fff",
+    alignItems: "center",
+    "& a:link, & a:visited": {
+      color: "#fff",
+      fontWeight: "500",
+      textDecoration: "none",
+      borderBottom: "1px solid transparent",
+      transition: "border-bottom 300ms ease-in-out",
+    },
+    "& a:hover, & a:active": {
+      borderBottom: "1px solid #fff",
+    },
   },
   palettes: {
     boxSizing: "border-box",

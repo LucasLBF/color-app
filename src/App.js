@@ -1,14 +1,16 @@
+import { Route, Switch } from "react-router-dom";
 import Palette from "./Palette";
 import PaletteList from "./PaletteList";
 import SingleColorPalette from "./SingleColorPalette";
 import seedPalettes from "./seedPalettes";
+import NewPaletteForm from "./NewPaletteForm";
 import { generatePalette } from "./colorHelpers";
-import { Route, Switch } from "react-router-dom";
 
 const findPalette = id => seedPalettes.find(p => p.id === id);
 function App() {
   return (
     <Switch>
+      <Route exact path="/palette/new" render={() => <NewPaletteForm />} />
       <Route
         exact
         path="/"
