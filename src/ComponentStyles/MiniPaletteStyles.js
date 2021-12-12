@@ -20,7 +20,6 @@ const MiniPaletteStyles = {
     height: "150px",
     alignSelf: "center",
     display: "flex",
-    alignItems: "center",
     justifyContent: "flex-start",
     flexWrap: "wrap",
   },
