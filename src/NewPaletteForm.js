@@ -1,11 +1,7 @@
 import React, { Component } from "react";
-// import PersistentDrawerLeft from "./PersistentDrawer";
-import { styled } from "@mui/material/styles";
-import { withStyles } from "@mui/styles";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import CssBaseline from "@mui/material/CssBaseline";
-import MuiAppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import { Button, Typography } from "@mui/material";
 import Divider from "@mui/material/Divider";
@@ -15,56 +11,13 @@ import DraggableColorBox from "./DraggableColorBox";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import { ChromePicker } from "react-color";
 import { TextValidator, ValidatorForm } from "react-material-ui-form-validator";
-import styles from "./ComponentStyles/NewPaletteFormStyles";
+import {
+  Main,
+  AppBar,
+  DrawerHeader,
+} from "./ComponentStyles/NewPaletteFormStyles";
 
 const drawerWidth = 400;
-const appBarHeight = 64;
-
-const Main = styled("main", { shouldForwardProp: prop => prop !== "open" })(
-  ({ theme, open }) => ({
-    flexGrow: 1,
-    padding: theme.spacing(3),
-    transition: theme.transitions.create("margin", {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    height: `calc(100vh - ${appBarHeight}px)`,
-    marginLeft: `-${drawerWidth}px`,
-    ...(open && {
-      transition: theme.transitions.create("margin", {
-        easing: theme.transitions.easing.easeOut,
-        duration: theme.transitions.duration.enteringScreen,
-      }),
-      marginLeft: 0,
-    }),
-  })
-);
-
-const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: prop => prop !== "open",
-})(({ theme, open }) => ({
-  transition: theme.transitions.create(["margin", "width"], {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  ...(open && {
-    width: `calc(100% - ${drawerWidth}px)`,
-    marginLeft: `${drawerWidth}px`,
-    transition: theme.transitions.create(["margin", "width"], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  }),
-}));
-
-const DrawerHeader = styled("div")(({ theme }) => ({
-  display: "flex",
-  alignItems: "center",
-  padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
-  ...theme.mixins.toolbar,
-  justifyContent: "flex-end",
-}));
 class NewPaletteForm extends Component {
   constructor(props) {
     super(props);
@@ -122,7 +75,6 @@ class NewPaletteForm extends Component {
 
   render() {
     const { open, currentColor, colors } = this.state;
-    // const { classes } = this.props;
     return (
       <Box sx={{ display: "flex" }}>
         <CssBaseline />
@@ -137,7 +89,7 @@ class NewPaletteForm extends Component {
             >
               <MenuIcon />
             </IconButton>
-            New Palette
+            Create a Palette
           </Toolbar>
         </AppBar>
         <Drawer
@@ -205,5 +157,4 @@ class NewPaletteForm extends Component {
   }
 }
 
-export default withStyles(styles, { withTheme: true })(NewPaletteForm);
-// export default NewPaletteForm;
+export default NewPaletteForm;
