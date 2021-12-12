@@ -21,8 +21,6 @@ const drawerWidth = 400;
 class NewPaletteForm extends Component {
   constructor(props) {
     super(props);
-    console.log("props:", this.props);
-    console.log("theme:", this.theme);
     this.state = {
       open: false,
       currentColor: "teal",
@@ -34,6 +32,7 @@ class NewPaletteForm extends Component {
     this.handleChangeColor = this.handleChangeColor.bind(this);
     this.addNewColor = this.addNewColor.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -73,12 +72,24 @@ class NewPaletteForm extends Component {
     this.setState({ newName: ev.target.value });
   }
 
+  handleSubmit() {
+    const paletteName = "Test Palette";
+    const paletteId = paletteName.toLowerCase().replace(/ /g, "-");
+    const newPalette = {
+      paletteName: paletteName,
+      id: paletteId,
+      colors: this.state.colors,
+    };
+    this.props.savePalette(newPalette);
+    this.props.history.push("/");
+  }
+
   render() {
     const { open, currentColor, colors } = this.state;
     return (
       <Box sx={{ display: "flex" }}>
         <CssBaseline />
-        <AppBar position="fixed" open={open}>
+        <AppBar position="fixed" color="default" open={open}>
           <Toolbar>
             <IconButton
               color="inherit"
@@ -90,6 +101,13 @@ class NewPaletteForm extends Component {
               <MenuIcon />
             </IconButton>
             Create a Palette
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={this.handleSubmit}
+            >
+              Save Palette
+            </Button>
           </Toolbar>
         </AppBar>
         <Drawer
