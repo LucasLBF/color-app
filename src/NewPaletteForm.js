@@ -7,15 +7,17 @@ import Drawer from "@mui/material/Drawer";
 import CssBaseline from "@mui/material/CssBaseline";
 import MuiAppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import { Button, colors, Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
+import DraggableColorBox from "./DraggableColorBox";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import { ChromePicker } from "react-color";
 import styles from "./ComponentStyles/NewPaletteFormStyles";
 
 const drawerWidth = 400;
+const appBarHeight = 64;
 
 const Main = styled("main", { shouldForwardProp: prop => prop !== "open" })(
   ({ theme, open }) => ({
@@ -25,6 +27,7 @@ const Main = styled("main", { shouldForwardProp: prop => prop !== "open" })(
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
+    height: `calc(100vh - ${appBarHeight}px)`,
     marginLeft: `-${drawerWidth}px`,
     ...(open && {
       transition: theme.transitions.create("margin", {
@@ -157,11 +160,9 @@ class NewPaletteForm extends Component {
         </Drawer>
         <Main Main open={open}>
           <DrawerHeader />
-          <ul>
-            {colors.map(color => (
-              <li>{color}</li>
-            ))}
-          </ul>
+          {colors.map(color => (
+            <DraggableColorBox color={color} />
+          ))}
         </Main>
       </Box>
     );
