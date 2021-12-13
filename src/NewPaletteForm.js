@@ -1,23 +1,84 @@
 import React, { Component } from "react";
-import Box from "@mui/material/Box";
-import Drawer from "@mui/material/Drawer";
-import CssBaseline from "@mui/material/CssBaseline";
-import Toolbar from "@mui/material/Toolbar";
-import { Button, Typography } from "@mui/material";
-import Divider from "@mui/material/Divider";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
-import DraggableColorBox from "./DraggableColorBox";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import classNames from "classnames";
+import { withStyles } from "@material-ui/core/styles";
+import Drawer from "@material-ui/core/Drawer";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
+import Divider from "@material-ui/core/Divider";
+import IconButton from "@material-ui/core/IconButton";
+import MenuIcon from "@material-ui/icons/Menu";
+import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import { ChromePicker } from "react-color";
 import { TextValidator, ValidatorForm } from "react-material-ui-form-validator";
-import {
-  Main,
-  AppBar,
-  DrawerHeader,
-} from "./ComponentStyles/NewPaletteFormStyles";
+import DraggableColorBox from "./DraggableColorBox";
 
 const drawerWidth = 400;
+
+const styles = theme => ({
+  root: {
+    display: "flex",
+  },
+  appBar: {
+    transition: theme.transitions.create(["margin", "width"], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+  },
+  appBarShift: {
+    width: `calc(100% - ${drawerWidth}px)`,
+    marginLeft: drawerWidth,
+    transition: theme.transitions.create(["margin", "width"], {
+      easing: theme.transitions.easing.easeOut,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+  },
+  menuButton: {
+    marginLeft: 12,
+    marginRight: 20,
+  },
+  hide: {
+    display: "none",
+  },
+  drawer: {
+    width: drawerWidth,
+    flexShrink: 0,
+  },
+  drawerPaper: {
+    width: drawerWidth,
+  },
+  drawerHeader: {
+    display: "flex",
+    alignItems: "center",
+    padding: "0 8px",
+    ...theme.mixins.toolbar,
+    justifyContent: "flex-end",
+  },
+  content: {
+    flexGrow: 1,
+    height: "calc(100vh - 64px)",
+    padding: 0,
+    transition: theme.transitions.create("margin", {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+    marginLeft: -drawerWidth,
+  },
+  contentShift: {
+    transition: theme.transitions.create("margin", {
+      easing: theme.transitions.easing.easeOut,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+    marginLeft: 0,
+  },
+  paletteFormArea: {
+    display: "flex",
+    gap: "1rem",
+  },
+});
+
 class NewPaletteForm extends Component {
   constructor(props) {
     super(props);
@@ -104,23 +165,35 @@ class NewPaletteForm extends Component {
   }
 
   render() {
+    const { classes } = this.props;
     const { open, currentColor, colors, newPaletteName } = this.state;
+
     return (
-      <Box sx={{ display: "flex" }}>
+      <div className={classes.root}>
         <CssBaseline />
-        <AppBar position="fixed" color="default" open={open}>
-          <Toolbar>
+        <AppBar
+          position="fixed"
+          color="default"
+          className={classNames(classes.appBar, {
+            [classes.appBarShift]: open,
+          })}
+        >
+          <Toolbar disableGutters={!open}>
             <IconButton
               color="inherit"
-              aria-label="open drawer"
+              aria-label="Open drawer"
               onClick={this.handleDrawerOpen}
-              edge="start"
-              sx={{ mr: 2, ...(open && { display: "none" }) }}
+              className={classNames(classes.menuButton, open && classes.hide)}
             >
               <MenuIcon />
             </IconButton>
-            Create a Palette
-            <ValidatorForm onSubmit={this.handleSubmit}>
+            <Typography variant="h6" color="inherit" noWrap>
+              Create a Palette
+            </Typography>
+            <ValidatorForm
+              className={classes.paletteFormArea}
+              onSubmit={this.handleSubmit}
+            >
               <TextValidator
                 value={newPaletteName}
                 label="Palette Name"
@@ -139,27 +212,23 @@ class NewPaletteForm extends Component {
           </Toolbar>
         </AppBar>
         <Drawer
-          sx={{
-            width: drawerWidth,
-            flexShrink: 0,
-            "& .MuiDrawer-paper": {
-              width: drawerWidth,
-              boxSizing: "border-box",
-            },
-          }}
+          className={classes.drawer}
           variant="persistent"
           anchor="left"
           open={open}
+          classes={{
+            paper: classes.drawerPaper,
+          }}
         >
-          <DrawerHeader>
+          <div className={classes.drawerHeader}>
             <IconButton onClick={this.handleDrawerClose}>
               <ChevronLeftIcon />
             </IconButton>
-          </DrawerHeader>
+          </div>
           <Divider />
           <Typography variant="h4">Design your Palette</Typography>
           <div>
-            <Button variant="contained" color="error">
+            <Button variant="contained" color="secondary">
               Clear Palette
             </Button>
             <Button variant="contained" color="primary">
@@ -193,8 +262,12 @@ class NewPaletteForm extends Component {
             </Button>
           </ValidatorForm>
         </Drawer>
-        <Main Main open={open}>
-          <DrawerHeader />
+        <main
+          className={classNames(classes.content, {
+            [classes.contentShift]: open,
+          })}
+        >
+          <div className={classes.drawerHeader} />
           {colors.map(color => (
             <DraggableColorBox
               key={color.name}
@@ -203,10 +276,10 @@ class NewPaletteForm extends Component {
               handleClick={() => this.handleDeleteColorBox(color.name)}
             />
           ))}
-        </Main>
-      </Box>
+        </main>
+      </div>
     );
   }
 }
 
-export default NewPaletteForm;
+export default withStyles(styles, { withTheme: true })(NewPaletteForm);
