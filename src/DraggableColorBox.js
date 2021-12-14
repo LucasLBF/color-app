@@ -1,4 +1,5 @@
 import React from "react";
+import { SortableElement } from "react-sortable-hoc";
 import { withStyles } from "@mui/styles";
 import chroma from "chroma-js";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -37,7 +38,7 @@ const styles = {
     transition: "all 300ms",
   },
 };
-const DraggableColorBox = props => {
+const DraggableColorBox = SortableElement(props => {
   const { name, classes, handleClick } = props;
   return (
     <div className={classes.draggableColorBox}>
@@ -47,6 +48,6 @@ const DraggableColorBox = props => {
       </div>
     </div>
   );
-};
+});
 
 export default withStyles(styles)(DraggableColorBox);

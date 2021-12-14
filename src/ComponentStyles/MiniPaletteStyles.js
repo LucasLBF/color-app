@@ -18,17 +18,13 @@ const MiniPaletteStyles = {
     borderRadius: "5px",
     overflow: "hidden",
     height: "150px",
-    alignSelf: "center",
-    display: "flex",
-    justifyContent: "flex-start",
-    flexWrap: "wrap",
+    fontSize: 0,
   },
   box: {
     width: "20%",
     height: "25%",
     display: "inline-block",
     position: "relative",
-    marginBottom: "-3.5px",
   },
   title: {
     display: "flex",
