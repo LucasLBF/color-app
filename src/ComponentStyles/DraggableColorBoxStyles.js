@@ -9,7 +9,6 @@ const styles = {
     cursor: "pointer",
     position: "relative",
     textTransform: "uppercase",
-    marginBottom: "-3.5px",
     backgroundColor: props => props.color,
     "&:hover svg": {
       color: "#fff",

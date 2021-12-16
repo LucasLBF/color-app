@@ -5,7 +5,6 @@ import PaletteFormNav from "./PaletteFormNav";
 import Drawer from "@material-ui/core/Drawer";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import DraggableColorList from "./DraggableColorList";
@@ -121,7 +120,6 @@ class NewPaletteForm extends Component {
               <ChevronLeftIcon />
             </IconButton>
           </div>
-          <Divider />
           <div className={classes.drawerContainer}>
             <Typography variant="h4" gutterBottom>
               Design your Palette
