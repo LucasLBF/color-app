@@ -5,6 +5,8 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import "emoji-mart/css/emoji-mart.css";
+import { Picker } from "emoji-mart";
 import { TextValidator, ValidatorForm } from "react-material-ui-form-validator";
 
 class PaletteMetaForm extends Component {
@@ -13,10 +15,12 @@ class PaletteMetaForm extends Component {
     this.state = {
       open: true,
       newPaletteName: "",
+      emoji: "",
     };
     this.handleClickOpen = this.handleClickOpen.bind(this);
     this.handleClose = this.handleClose.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleSelectEmoji = this.handleSelectEmoji.bind(this);
   }
 
   componentDidMount() {
@@ -42,13 +46,17 @@ class PaletteMetaForm extends Component {
     this.setState({ open: false });
   }
 
+  handleSelectEmoji(emoji) {
+    this.setState({ emoji: emoji });
+  }
+
   render() {
-    const { handleSubmit } = this.props;
+    const { handleSubmit, hideForm } = this.props;
     const { newPaletteName } = this.state;
     return (
       <Dialog
         open={this.state.open}
-        onClose={this.handleClose}
+        onClose={hideForm}
         aria-labelledby="form-dialog-title"
       >
         <DialogTitle id="form-dialog-title">Choose a Palette Name</DialogTitle>
@@ -56,6 +64,13 @@ class PaletteMetaForm extends Component {
           <DialogContent>
             <DialogContentText>
               Please enter a name for your new palette. Make sure it's unique!
+              <Picker
+                set="apple"
+                emoji="art"
+                onSelect={this.handleSelectEmoji}
+                emojiSize={24}
+                title="Pick an emoji for your new palette!"
+              />
             </DialogContentText>
             <TextValidator
               value={newPaletteName}
@@ -73,7 +88,7 @@ class PaletteMetaForm extends Component {
             />
           </DialogContent>
           <DialogActions>
-            <Button onClick={this.handleClose} color="primary">
+            <Button onClick={hideForm} color="primary">
               Cancel
             </Button>
             <Button variant="contained" type="submit" color="primary">
