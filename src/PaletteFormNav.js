@@ -10,53 +10,8 @@ import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import PaletteMetaForm from "./PaletteMetaForm";
+import styles from "./ComponentStyles/PaletteFormNavStyles";
 
-const drawerWidth = 400;
-
-const styles = theme => ({
-  root: {
-    display: "flex",
-  },
-  appBar: {
-    transition: theme.transitions.create(["margin", "width"], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    paddingRight: "1rem",
-  },
-  appBarShift: {
-    width: `calc(100% - ${drawerWidth}px)`,
-    marginLeft: drawerWidth,
-    transition: theme.transitions.create(["margin", "width"], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  },
-  menuButton: {
-    marginLeft: 12,
-    marginRight: 20,
-  },
-  hide: {
-    display: "none",
-  },
-  paletteFormArea: {
-    display: "flex",
-    gap: "1rem",
-    alignItems: "center",
-    "& button": {
-      marginLeft: "auto",
-    },
-  },
-  navBtns: {
-    display: "flex",
-    gap: "0.5rem",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-});
 class PaletteFormNav extends Component {
   constructor(props) {
     super(props);
