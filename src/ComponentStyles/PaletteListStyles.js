@@ -3,6 +3,7 @@ const PaletteListStyles = {
     backgroundColor: "blue",
     minHeight: "100vh",
     display: "flex",
+    paddingBottom: "2rem",
     alignItems: "flex-start",
     justifyContent: "center",
   },
@@ -34,8 +35,8 @@ const PaletteListStyles = {
     boxSizing: "border-box",
     width: "100%",
     display: "grid",
-    gridTemplateColumns: "repeat(3, 30%)",
-    gridGap: "5%",
+    gridTemplateColumns: "repeat(3, 1fr)",
+    columnGap: "5%",
   },
 };
 
