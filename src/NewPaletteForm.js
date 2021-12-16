@@ -111,10 +111,11 @@ class NewPaletteForm extends Component {
     });
   }
 
-  handleSubmit(paletteName) {
+  handleSubmit({ paletteName, emoji }) {
     const paletteId = paletteName.toLowerCase().replace(/ /g, "-");
     const newPalette = {
       paletteName: paletteName,
+      emoji: emoji,
       id: paletteId,
       colors: this.state.colors,
     };
