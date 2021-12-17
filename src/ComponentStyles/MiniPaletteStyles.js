@@ -9,8 +9,9 @@ const MiniPaletteStyles = {
     padding: "0.5rem",
     position: "relative",
     overflow: "hidden",
-    "&:hover": {
-      cursor: "pointer",
+    cursor: "pointer",
+    "&:hover svg": {
+      opacity: 1,
     },
   },
   colors: {
@@ -39,6 +40,15 @@ const MiniPaletteStyles = {
   },
   emoji: {
     fontSize: "1.5rem",
+  },
+  deleteIcon: {
+    position: "absolute",
+    top: 0,
+    right: 0,
+    zIndex: 10,
+    color: "#fff",
+    backgroundColor: "#eb3d30",
+    opacity: 0,
   },
 };
 
