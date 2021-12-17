@@ -3,9 +3,8 @@ const PaletteStyles = {
     height: "100vh",
   },
   paletteColors: {
-    display: "flex",
-    flexWrap: "wrap",
     height: "90%",
+    fontSize: 0,
   },
 };
 

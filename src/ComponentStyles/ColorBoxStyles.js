@@ -1,4 +1,5 @@
 import chroma from "chroma-js";
+import breakpoints from "./mediaQueries";
 
 const ColorBoxStyles = {
   copyText: {
@@ -9,6 +10,8 @@ const ColorBoxStyles = {
   },
   colorBox: {
     width: "20%",
+    display: "inline-block",
+    margin: "0 auto",
     height: props => (props.showingFullPalette ? "25%" : "50%"),
     cursor: "pointer",
     position: "relative",
@@ -16,6 +19,19 @@ const ColorBoxStyles = {
     backgroundColor: props => props.color,
     "&:hover button": {
       opacity: 1,
+    },
+    [breakpoints.down("lg")]: {
+      width: "25%",
+      height: props => (props.showingFullPalette ? "20%" : "50%"),
+    },
+    [breakpoints.down("md")]: {
+      width: "50%",
+      height: props => (props.showingFullPalette ? "10%" : "50%"),
+    },
+    [breakpoints.down("sm")]: {},
+    [breakpoints.down("xs")]: {
+      width: "100%",
+      height: props => (props.showingFullPalette ? "5%" : "10%"),
     },
   },
   copyBtn: {
