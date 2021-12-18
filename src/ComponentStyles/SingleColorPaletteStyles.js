@@ -1,19 +1,34 @@
+import breakpoints from "./mediaQueries";
+
 const SingleColorPaletteStyles = {
   singleColorPalette: {
     height: "100vh",
+    overflow: "hidden",
   },
   paletteColors: {
-    display: "flex",
-    flexWrap: "wrap",
     height: "90%",
+    fontSize: 0,
   },
   goBackBox: {
     width: "20%",
-    height: props => (props.showingFullPalette ? "25%" : "50%"),
+    display: "inline-block",
+    height: "50%",
     cursor: "pointer",
     position: "relative",
     textTransform: "uppercase",
     backgroundColor: "#000",
+    [breakpoints.down("lg")]: {
+      width: "25%",
+      height: "33.333%",
+    },
+    [breakpoints.down("md")]: {
+      width: "50%",
+      height: "20%",
+    },
+    [breakpoints.down("sm")]: {
+      width: "100%",
+      height: "10%",
+    },
   },
   goBackBtn: {
     display: "inline-block",
