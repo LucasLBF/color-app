@@ -22,14 +22,13 @@ const ColorBoxStyles = {
     },
     [breakpoints.down("lg")]: {
       width: "25%",
-      height: props => (props.showingFullPalette ? "20%" : "50%"),
+      height: props => (props.showingFullPalette ? "20%" : "33.333%"),
     },
     [breakpoints.down("md")]: {
       width: "50%",
-      height: props => (props.showingFullPalette ? "10%" : "50%"),
+      height: props => (props.showingFullPalette ? "10%" : "20%"),
     },
-    [breakpoints.down("sm")]: {},
-    [breakpoints.down("xs")]: {
+    [breakpoints.down("sm")]: {
       width: "100%",
       height: props => (props.showingFullPalette ? "5%" : "10%"),
     },
@@ -64,9 +63,15 @@ const ColorBoxStyles = {
   },
   showOverlay: {
     opacity: 1,
-    transform: "scale(9)",
+    transform: "scale(9, 12)",
     zIndex: 10,
     position: "absolute",
+    [breakpoints.down("md")]: {
+      transform: "scale(9, 21)",
+    },
+    [breakpoints.down("sm")]: {
+      transform: "scale(9, 45)",
+    },
   },
   moreBtn: {
     backgroundColor: "rgba(255, 255, 255, 0.3)",

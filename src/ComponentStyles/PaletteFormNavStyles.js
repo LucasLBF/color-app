@@ -1,4 +1,5 @@
 import { DRAWER_WIDTH } from "../constants";
+import breakpoints from "./mediaQueries";
 
 const styles = theme => ({
   root: {
@@ -13,6 +14,9 @@ const styles = theme => ({
     justifyContent: "space-between",
     alignItems: "center",
     paddingRight: "1rem",
+    [breakpoints.down("md")]: {
+      paddingRight: "0.5rem",
+    },
   },
   appBarShift: {
     width: `calc(100% - ${DRAWER_WIDTH}px)`,
@@ -37,11 +41,33 @@ const styles = theme => ({
       marginLeft: "auto",
     },
   },
+  navbarHeader: {
+    marginLeft: "1rem",
+    [breakpoints.down("md")]: {
+      fontSize: "1rem",
+    },
+    [breakpoints.down("sm")]: {
+      marginLeft: 0,
+    },
+  },
   navBtns: {
     display: "flex",
     gap: "0.5rem",
     justifyContent: "center",
     alignItems: "center",
+    [breakpoints.down("sm")]: {
+      gap: "0.2rem",
+      flexWrap: "wrap",
+    },
+  },
+  button: {
+    fontSize: "1rem",
+    [breakpoints.down("md")]: {
+      fontSize: "0.65rem",
+    },
+    [breakpoints.down("sm")]: {
+      padding: "0.25rem 0.5rem",
+    },
   },
 });
 

@@ -1,4 +1,5 @@
 import chroma from "chroma-js";
+import breakpoints from "./mediaQueries";
 
 const styles = {
   draggableColorBox: {
@@ -13,6 +14,18 @@ const styles = {
     "&:hover svg": {
       color: "#fff",
       transform: "scale(1.4)",
+    },
+    [breakpoints.down("lg")]: {
+      width: "25%",
+      height: "20%",
+    },
+    [breakpoints.down("md")]: {
+      width: "50%",
+      height: "10%",
+    },
+    [breakpoints.down("sm")]: {
+      width: "100%",
+      height: "5%",
     },
   },
   boxContent: {

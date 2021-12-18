@@ -1,3 +1,5 @@
+import breakpoints from "./mediaQueries";
+
 const NavbarStyles = {
   navbar: {
     height: "5vh",
@@ -5,6 +7,9 @@ const NavbarStyles = {
     alignItems: "center",
     gap: "1rem",
     paddingRight: "3rem",
+    [breakpoints.down("sm")]: {
+      padding: "0 2rem",
+    },
   },
   navbarBrand: {
     backgroundColor: "#eceff1",
@@ -16,6 +21,9 @@ const NavbarStyles = {
       textDecoration: "none",
       fontSize: "1.6rem",
       color: "#444",
+    },
+    [breakpoints.down("sm")]: {
+      display: "none",
     },
   },
   sliderContainer: {
@@ -39,6 +47,9 @@ const NavbarStyles = {
         boxShadow: "none",
         marginTop: "-3px",
       },
+    [breakpoints.down("xs")]: {
+      width: "140px",
+    },
   },
   selectContainer: {
     marginLeft: "auto",
