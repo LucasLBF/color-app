@@ -52,7 +52,7 @@ class PaletteFormNav extends Component {
             [classes.appBarShift]: open,
           })}
         >
-          <Toolbar disableGutters={!open}>
+          <Toolbar disableGutters={true}>
             <IconButton
               color="inherit"
               aria-label="Open drawer"
@@ -61,16 +61,30 @@ class PaletteFormNav extends Component {
             >
               <AddToPhotos />
             </IconButton>
-            <Typography variant="h6" color="inherit" noWrap>
+            <Typography
+              className={classes.navbarHeader}
+              variant="h6"
+              color="inherit"
+              noWrap
+            >
               Create a Palette
             </Typography>
           </Toolbar>
           <div className={classes.navBtns}>
-            <Button onClick={this.showForm} variant="contained" color="primary">
+            <Button
+              className={classes.button}
+              onClick={this.showForm}
+              variant="contained"
+              color="primary"
+            >
               Save Palette
             </Button>
             <Link to="/">
-              <Button variant="contained" color="secondary">
+              <Button
+                className={classes.button}
+                variant="contained"
+                color="secondary"
+              >
                 Go Back
               </Button>
             </Link>
