@@ -4,6 +4,7 @@ const MiniPaletteStyles = {
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
+    border: "1px solid #000",
     borderRadius: "0.5rem",
     padding: "0.5rem",
     position: "relative",

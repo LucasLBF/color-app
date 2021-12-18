@@ -1,13 +1,17 @@
 import breakpoints from "./mediaQueries";
+import bg from "./bg.svg";
 
 const PaletteListStyles = {
   root: {
-    backgroundColor: "blue",
     minHeight: "100vh",
     display: "flex",
     paddingBottom: "2rem",
     alignItems: "flex-start",
     justifyContent: "center",
+    backgroundColor: "#1A28AA",
+    backgroundAttachment: "fixed",
+    backgroundImage: `url(${bg})`,
+    /* background by SVGBackgrounds.com */
   },
   container: {
     width: "60%",
@@ -41,6 +45,12 @@ const PaletteListStyles = {
     },
     "& a:hover, & a:active": {
       borderBottom: "1px solid #fff",
+    },
+  },
+  heading: {
+    fontSize: "2rem",
+    [breakpoints.down("sm")]: {
+      fontSize: "1.5rem",
     },
   },
   palettes: {
