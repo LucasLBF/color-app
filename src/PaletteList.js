@@ -26,6 +26,7 @@ class PaletteList extends Component {
     this.handleClickOpen = this.handleClickOpen.bind(this);
     this.handleClose = this.handleClose.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.goToPalette = this.goToPalette.bind(this);
   }
   goToPalette(id) {
     this.props.history.push(`/palette/${id}`);
@@ -92,9 +93,7 @@ class PaletteList extends Component {
                     {...palette}
                     key={palette.id}
                     openDialog={this.handleClickOpen}
-                    handleClick={() => {
-                      this.goToPalette(palette.id);
-                    }}
+                    goToPalette={this.goToPalette}
                   />
                 </CSSTransition>
               ))}
