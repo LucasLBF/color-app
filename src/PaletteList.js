@@ -7,6 +7,7 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import { Button } from "@material-ui/core";
 import PaletteListStyles from "./ComponentStyles/PaletteListStyles";
 import { DialogActions } from "@material-ui/core";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 class PaletteList extends Component {
   constructor(props) {
@@ -55,18 +56,20 @@ class PaletteList extends Component {
                 Create new palette
               </Link>
             </nav>
-            <div className={classes.palettes}>
+            <TransitionGroup className={classes.palettes}>
               {paletteList.map(palette => (
-                <MiniPalette
-                  {...palette}
-                  key={palette.id}
-                  openDialog={this.handleClickOpen}
-                  handleClick={() => {
-                    this.goToPalette(palette.id);
-                  }}
-                />
+                <CSSTransition key={palette.id} classNames="fade" timeout={500}>
+                  <MiniPalette
+                    {...palette}
+                    key={palette.id}
+                    openDialog={this.handleClickOpen}
+                    handleClick={() => {
+                      this.goToPalette(palette.id);
+                    }}
+                  />
+                </CSSTransition>
               ))}
-            </div>
+            </TransitionGroup>
           </div>
         </div>
       </div>

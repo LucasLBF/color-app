@@ -2,6 +2,15 @@ import breakpoints from "./mediaQueries";
 import bg from "./bg.svg";
 
 const PaletteListStyles = {
+  "@global": {
+    ".fade-exit": {
+      opacity: 1,
+    },
+    ".fade-exit-active": {
+      opacity: 0,
+      transition: "opacity 500ms ease-in",
+    },
+  },
   root: {
     minHeight: "100vh",
     display: "flex",
