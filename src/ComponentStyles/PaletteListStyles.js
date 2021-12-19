@@ -22,6 +22,9 @@ const PaletteListStyles = {
     backgroundImage: `url(${bg})`,
     /* background by SVGBackgrounds.com */
   },
+  paletteList: {
+    width: "100%",
+  },
   container: {
     width: "60%",
     display: "flex",
