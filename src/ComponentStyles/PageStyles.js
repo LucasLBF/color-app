@@ -13,8 +13,8 @@ const styles = {
   page: {
     minHeight: "100vh",
     width: "100%",
-    position: "fixed",
     transition: "opacity 400ms ease-in",
+    position: "absolute",
   },
 };
 
