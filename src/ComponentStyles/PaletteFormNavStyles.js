@@ -60,6 +60,9 @@ const styles = theme => ({
       flexWrap: "wrap",
     },
   },
+  backLink: {
+    textDecoration: "none",
+  },
   button: {
     fontSize: "1rem",
     [breakpoints.down("md")]: {
