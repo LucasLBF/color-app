@@ -161,6 +161,7 @@ class NewPaletteForm extends Component {
             colors={colors}
             removeColor={this.handleDeleteColorBox}
             axis="xy"
+            distance={20}
           />
         </main>
       </div>
